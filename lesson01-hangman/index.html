@@ -2,28 +2,53 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        function guessChar() {
+            // document.getElementById("pilt1").style = "max-width: 300px; display: none;";
+            // document.getElementById("pilt2").style = "max-width: 300px;";
+
+            // document.getElementById("char3").innerHTML = "T";
+
+            var enteredChar = document.getElementById("entered_char").value;
+            if (enteredChar == "T") {
+                document.getElementById("char3").innerHTML = enteredChar;
+            } else {
+                document.getElementById("pilt1").style = "max-width: 300px; display: none;";
+                document.getElementById("pilt2").style = "max-width: 300px;";
+            }
+        }
+    </script>
+
 </head>
 
 <body style="position: relative; padding: 10px;">
-    <div style="position: fixed; background-color: green; top: 0px; left: 0px; right: 0px; padding: 10px">
-        Logo
+    <div style="position: fixed; background-color: green; color: white; top: 0px; left: 0px; right: 0px; padding: 10px">
+        Hangman game
     </div>
 
-    <div style="color: green; font-size: 36px; padding-top: 50px;">
-        Tere
-    </div>
 
-    <div style="color: green;">
-        See on minu esimene koduleht
-    </div>
-
-    <input />
 
     <br />
     <br />
 
-    <img style="max-width: 300px;" src="cat.jpeg">
-    <img style="max-width: 300px;" src="cat.jpeg">
+    <img id="pilt1" style="max-width: 300px;" src="pilt1.png">
+    <img id="pilt2" style="max-width: 300px; display: none;" src="pilt2.png">
+    <img id="pilt3" style="max-width: 300px; display: none;" src="pilt3.png">
+    <img id="pilt4" style="max-width: 300px; display: none;" src="pilt4.png">
+    <img id="pilt5" style="max-width: 300px; display: none;" src="pilt5.png">
+
+    <div id='word' style="font-size: 48px;">
+        <div id="char1" style="display: inline-block;">A</div>
+        <div id="char2" style="display: inline-block;">U</div>
+        <div id="char3" style="display: inline-block;">_</div>
+        <div id="char4" style="display: inline-block;">O</div>
+    </div>
+
+    <br />
+    Please enter character:
+    <input id="entered_char" style="padding: 10px; font-size: 24px; text-align: center; width: 48px;" maxlength="1" />
+    <button onclick="guessChar()">Submit character</button>
 </body>
 
 </html>

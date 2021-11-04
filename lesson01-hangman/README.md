@@ -1,3 +1,7 @@
+Hangman game desc:
+1. https://en.wikipedia.org/wiki/Hangman_(game)
+
+
 Links:
 1. https://www.w3schools.com/html/
 2. https://www.w3schools.com/css/
