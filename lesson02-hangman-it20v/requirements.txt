@@ -1,0 +1,35 @@
+Nõuded Hangman mängule / requirements for Hangman game
+
+1. Peab olema võimalik lisada erinevaid sõnu
+2. Ei ole võimalik sisestada numbreid
+3. Pilt liigub edasi, kui vale täht on sisestatud
+4. On ajalugu, mis tähti on sisestatud
+5. Kui Sisesta nuppu on vajutatud, siis input väli tühjeneb
+
+
+            if (enteredCharValue == "U") {
+                guessedCharCorrectly = true;
+                console.log("correct char for char2");
+                document.getElementById("char2").innerHTML = enteredCharValue;
+            } else {
+                console.log({guessedCharCorrectly});
+                if (guessedCharCorrectly) {
+                    console.log("not caring, that char2 was incorrect, because already guessed correctly char1")
+                } else {
+                    console.log("wrong char for char2");
+                    document.getElementById("pilt1").src = "pilt2.png";
+                }
+            }
+
+            if (enteredCharValue == "A") {
+                guessedCharCorrectly = true;
+                console.log("correct char for char1");
+                document.getElementById("char1").innerHTML = enteredCharValue;
+            } else {
+                if (guessedCharCorrectly) {
+                    console.log("not caring, that char1 was incorrect, because already guessed correctly char2")
+                } else {
+                    console.log("wrong char for char1");
+                    document.getElementById("pilt1").src = "pilt2.png";
+                }
+            }

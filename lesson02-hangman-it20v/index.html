@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var pictureNumber = 1;
+        function guessChar() {
+            var correctChars = ["A", "U", "T", "O"];
+
+            var enteredChar = document.getElementById("entered_char");
+            var enteredCharValue = enteredChar.value;
+
+            console.log(correctChars.indexOf(enteredCharValue));
+
+            if (correctChars.indexOf(enteredCharValue) == -1) {
+                pictureNumber = pictureNumber + 1;
+                document.getElementById("pilt1").src = "pilt"+pictureNumber+".png";
+            } else {
+                console.log("char" + correctChars.indexOf(enteredCharValue))
+                document.getElementById("char" + correctChars.indexOf(enteredCharValue)).innerHTML = enteredCharValue;
+            }
+
+            enteredChar.value = "";
+            var alreadyGuessedChars = document.getElementById("already_guessed_chars");
+            alreadyGuessedChars.innerHTML = alreadyGuessedChars.innerHTML + " " + enteredCharValue;
+        }
+    </script>
+</head>
+<body style="position: relative; padding: 10px;">
+    <div style="position: fixed; background-color: green; color: white; top: 0px; left: 0px; right: 0px; padding: 10px">
+        Hangman game
+    </div>
+    <br />
+    <br />
+    <img id="pilt1" style="max-width: 300px;" src="pilt1.png">
+    <br />
+    <div style="position: fixed; bottom: 0; left: 0; right: 0; padding: 20px">
+        <div id='word' style="font-size: 48px;">
+            <div id="char0" style="display: inline-block;">_</div>
+            <div id="char1" style="display: inline-block;">_</div>
+            <div id="char2" style="display: inline-block;">_</div>
+            <div id="char3" style="display: inline-block;">_</div>
+        </div>
+        Please enter character:
+        <input id="entered_char" style="padding: 10px; font-size: 24px; text-align: center; width: 48px;" maxlength="1" pattern="[A-Za-z]{1}" />
+        <button onclick="guessChar()">Submit character</button>
+        <div id="already_guessed_chars"></div>
+    </div>
+</body>
+</html>
