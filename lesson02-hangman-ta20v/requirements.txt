@@ -2,3 +2,8 @@
 2. Keep history of guessed characters
 3. When guessed wrong, then show next picture until last picture 
 4. When guessed, removed char from input
+
+
+Homework:
+5. Find more requirements and fulfil them
+6. When word has been guessed correctly, show next word automatically
