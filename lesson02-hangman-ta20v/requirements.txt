@@ -1,0 +1,4 @@
+1. Show characters only when guessed correctly
+2. Keep history of guessed characters
+3. When guessed wrong, then show next picture until last picture 
+4. When guessed, removed char from input

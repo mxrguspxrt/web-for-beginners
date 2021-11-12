@@ -1,96 +1,51 @@
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script>
+        var currentPictureNumber = 1;
+        var possibleWords = ["AUTO", "KOER", "PIRN"]
+        var guessWord = possibleWords[Math.floor(Math.random()*possibleWords.length)];
+        var guessWordChars = guessWord.split("");
         function handleSubmitClick() {
             var userCharInput = document.getElementById("user_char_input").value;
-
-            var char1 = document.getElementById("char1");
-            var char2 = document.getElementById("char2");
-            var char3 = document.getElementById("char3");
-            var char4 = document.getElementById("char4");
-
-            console.log({userCharInput: userCharInput})
-            console.log({char1Value: char1.innerHTML})
-            console.log({char2Value: char2.innerHTML})
-
-            if (userCharInput == char1.innerHTML) {
-                char1.innerHTML = userCharInput;
-                char1.style.color = "green";
+            document.getElementById("user_char_input").value = "";
+            var charsHistory = document.getElementById("chars_history");
+            charsHistory.innerHTML = charsHistory.innerHTML + " " + userCharInput;
+            var foundCharAt = guessWordChars.indexOf(userCharInput);
+            if (foundCharAt != -1) {
+                var htmlChar = document.getElementById("char" + foundCharAt);
+                htmlChar.innerHTML = userCharInput;
+                htmlChar.style.color = "green";
             } else {
                 var picture = document.getElementById("picture");
-                picture.src = "pilt2.png";
-            }
-
-            if (userCharInput == char2.innerHTML) {
-                char2.innerHTML = userCharInput;
-                char2.style.color = "green";
-            } else {
-                var picture = document.getElementById("picture");
-                picture.src = "pilt2.png";
-            }
-
-            if (userCharInput == char3.innerHTML) {
-                char3.innerHTML = userCharInput;
-                char3.style.color = "green";
-            } else {
-                var picture = document.getElementById("picture");
-                picture.src = "pilt2.png";
-            }
-
-            if (userCharInput == char4.innerHTML) {
-                char4.innerHTML = userCharInput;
-                char4.style.color = "green";
-            } else {
-                var picture = document.getElementById("picture");
-                picture.src = "pilt2.png";
+                currentPictureNumber = currentPictureNumber + 1;
+                picture.src = "pilt" + currentPictureNumber + ".png";
             }
         }
-
         function drawWord() {
-            var guessWord = "AUTO";
-            console.log({guessWord});
-            var guessWordChars = guessWord.split("");
-            console.log({guessWordChars});
-            
             var newWordHtml = guessWordChars.map((char, i) => {
-                return `<div id="char${i+1}" style="display: inline-block; font-size: 48px; color: red">${char}</div>`
+                return `<div id="char${i}" style="display: inline-block; font-size: 48px; color: red">_</div>`
             })
-            console.log({newWordHtml})
-
-            document.getElementById("word").innerHTML = newWordHtml.join("");
+            document.getElementById("word").innerHTML = newWordHtml.join(" ");
         }
     </script>
 </head>
-
 <body onload="drawWord()">
-
     <div style="background-color: black; color: white; padding: 20px">
         Hangman game
     </div>
-
     <div style="padding: 20px">
-
         <img id="picture" src="pilt1.png" style="max-width:100%;height:auto;">
-        <br />
-        <br />
-
+    </div>
+    <div style="position: fixed; bottom: 0; padding: 20px;">
         <div id="word">
         </div>
-
-        <br />
-        <br />
-
         <input id="user_char_input" maxlength="1" /><br /><br />
-        <submit onclick="javascript: handleSubmitClick()"
+        <submit onclick="handleSubmitClick()"
             style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">
             Guess character
         </submit>
-        <br />
-
+        <div id="chars_history" style="padding-top: 20px;"></div>
     </div>
 </body>
-
 </html>
