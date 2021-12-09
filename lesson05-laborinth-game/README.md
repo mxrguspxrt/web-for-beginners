@@ -8,3 +8,4 @@
 2. Iga mängitud sekund jookseb üks punkt vähemaks
 3. Kui punktid saavad otsa, siis lõppeb mäng kaotusega
 4. Kui mängija jõuab lõppu, siis tema punktide summa on 1000-mängitud sekundid
+5. Mängu tulemus üles laadida: https://pages.github.com/
